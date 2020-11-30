@@ -44,7 +44,7 @@ Agora nós vamos precisar criar uma pasta de projeto. Abra seu explorador de arq
 
 ![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/1/project_brane.png)
 
-No ZeroBrane Studio, crie um novo arquivo em `File` &rarr; `Novo` ou use o atalho `Control + N`.
+No ZeroBrane Studio, crie um novo arquivo em `File` &rarr; `New` ou use o atalho `Control + N`.
 
 Dentro desse arquivo, escreva o código abaixo:
 
