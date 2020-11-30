@@ -6,5 +6,4 @@ A versão inglês do tutorial está hospedada em [sheepolution.com/learn/book](h
 
 ## Capítulos traduzidos
 
-{: start="0"}
 0. [Introdução](https://arthr.me/como-fazer-love/livro/00-introducao)

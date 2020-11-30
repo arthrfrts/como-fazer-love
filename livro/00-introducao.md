@@ -32,16 +32,16 @@ Isso é um tutorial de programação que usa LÖVE por ser fácil para iniciante
 
 Aqui estão alguns gifs para dar a você uma ideia do que você vai aprender com esse tutorial.
 
-![](/images/book/14/demo.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/14/demo.gif)
 
-![](/images/book/16/following_circle_distance.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/16/following_circle_distance.gif)
 
-![](/images/book/17/jump_help.png) ![](/images/book/17/jump.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/17/jump_help.png) ![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/17/jump.gif)
 
-![](/images/book/18/tile-move-2.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/18/tile-move-2.gif)
 
-![](/images/book/22/splitscreen.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/22/splitscreen.gif)
 
-![](/images/book/23/box_wall_good.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/23/box_wall_good.gif)
 
-![](/images/book/24/jumping.gif)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/24/jumping.gif)
