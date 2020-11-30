@@ -1,5 +1,3 @@
-# Chapter 1 - Installation
-
 # Capítulo 1 – Instalação
 
 ***
