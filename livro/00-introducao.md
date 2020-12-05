@@ -2,7 +2,7 @@
 
 > Você está tão animado em aprender como fazer jogos que você não se importa em ler a minha introdução chata? Eu entendo, vá em frente e pule isso se você quiser. Boa sorte!
 
-Boas vindas à **Como fazer LÖVE**. O tutorial que ensina você a programar jogos com LÖVE (também conhecido como Love2D), escrito por [Sheepolution](https://www.sheepolution.com/) (e traduzido para o portugês por [mim](https://arthr.me/)). É o tutorial que ele gostaria de ter quando começou a aprender a programar.
+Boas vindas à **Como fazer LÖVE**. O tutorial que ensina você a programar jogos com LÖVE (também conhecido como Love2D), escrito por [Sheepolution](https://www.sheepolution.com/) (e traduzido para o português por [Arthur](https://arthr.me/)). É o tutorial que ele gostaria de ter quando começou a aprender a programar.
 
 Nesse tutorial nós usaremos LÖVE. O motivo para isso é porque LÖVE é bem amigável para iniciantes no desenvolvimento de jogos, mas oferece as funcionalidades necessárias para fazer jogos 2D profissionais. Isso torna-o uma ótima ferramenta tanto para iniciantes quanto para usuários experientes. [Aqui está uma lista](https://store.steampowered.com/curator/32659238-LÖVE-Games/) de todos os jogos na Steam que foram feitos com LÖVE.
 
