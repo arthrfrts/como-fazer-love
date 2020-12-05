@@ -11,3 +11,4 @@ A versão inglês do tutorial está hospedada em [sheepolution.com/learn/book](h
 2. [Variáveis](https://arthr.me/como-fazer-love/livro/02-variaveis)
 3. [Funções](https://arthr.me/como-fazer-love/livro/03-funcoes)
 4. [LÖVE](https://arthr.me/como-fazer-love/livro/04-love)
+5. [Movimentando um retângulo](https://arthr.me/como-fazer-love/livro/05-movimentando)
