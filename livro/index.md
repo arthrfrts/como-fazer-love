@@ -7,7 +7,7 @@
 4. [LÖVE](04-love)
 5. [Movimentando um retângulo](05-movimentando)
 6. [Condições](06-condicoes)
-7. [Tabelas e Iterações](07-iteracoes)
+7. [Tabelas e ciclos `for`](07-iteracoes)
 8. [Objetos](08-objetos)
 9. [Múltiplos arquivos e escopo](09-escopo)
 10. [Bibliotecas](10-bibliotecas)

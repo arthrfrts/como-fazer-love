@@ -1,118 +1,116 @@
-# Chapter 7 - Tables and for-loops
+# Capítulo 7 – Tabelas e ciclos `for`
 
-## Tables
-Tables are basically lists in which we can store values.
+## Tabelas
 
-You create a table with curly brackets ({ }):
+Tabelas são listas em que nós podemos armazenar valores.
 
-```lua
-function love.load()
-	fruits = {}
-
-end
-```
-
-We just created a table called fruits. Now we can store values inside the table. There are multiple ways to do this.
-
-One way is to put the values inside the curly brackets.
+Você pode criar uma tabela com chaves `{ }`:
 
 ```lua
 function love.load()
-	-- Each value is separated by a comma, just like with parameters and arguments
-	fruits = {"apple", "banana"}
+	frutas = {}
 end
 ```
 
-We can also use the function `table.insert`. The first argument is the table, the second argument is the value we want to store inside that table.
+Nós acabamos de criar uma tabela chamada `frutas`. Agora nós podemos armazenar valores dentro dessa tabela. Existem várias formas de fazermos isso.
+
+Uma dessas formas é colocarmos os valores dentro das chaves:
 
 ```lua
 function love.load()
-	--Each value is separated by a comma, just like with parameters and arguments
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
+	-- Cada valor é separado por uma vírgula, assim como parâmetros e argumentos.
+	frutas = {"maçã", "banana"}
 end
 ```
 
-So now after love.load our table will contain `"apple"`, `"banana"` and `"pear"`. To prove that, let's put the values on screen. For that we're going to use `love.graphics.print(text, x, y)`.
+Nós também podemos usar a função `table.insert`. O primeiro argumento é a tabela, o segundo argumento é o valor que nós queremos armazenar dentro dela.
+
+```lua
+function love.load()
+	-- Cada valor é separado por uma vírgula, assim como parâmetros e argumentos.
+	frutas = {"maçã", "banana"}
+	table.insert(frutas, "pêra")
+```
+
+Agora, quando `love.load` for executado, nossa tabela terá os valores `"maçã"`, `"banana"` e `"pêra"` armazenados. Para provarmos isso, vamos exibir os valores na tela usando `love.graphics.print("texto", x, y)`.
 
 ```lua
 function love.draw()
-	--Arguments: (text, x-position, y-position)
-	love.graphics.print("Test", 100, 100)
+	-- Argumentos: (texto, posição x, posição y)
+	love.graphics.print("Teste", 100, 100)
 end
 ```
 
-When you run the game, you should see the text "test" written. We can access the values of our table by writing the tables name, followed by brackets ([ ]) (So not curly but square brackets!). Inside these brackets, we write the position of the value we want.
+Quando você executar o jogo, você deverá ver o texto “Teste”.  Nós podemos acessar os valores em nossa tabela escrevendo o nome dela, seguido por colchetes (`[ ]`). Dentro desses colchetes, nós escrevemos a posição do valor que nós queremos.
 
-![](/images/book/7/table.png)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/7/table.png)
 
-Like I said, tables are a list of values. We first added `"apple"` and `"banana"`, so those are on the first and second position in the list. Next we added `"pear"`, so that's on the third position in the list. On position 4 there is no value (yet), since we only added 3 values.
+Como dito, tabelas são uma lista de valores. Primeiro, nós adicionamos `"maçã"` e `"banana"`, então esses estão na primeira e na segunda posição da lista. Depois nós adicionamos `"pêra"`, então ela está na terceira posição da lista. Na posição 4 não existe nenhum valor (por enquanto), já que nós só adicionamos três valores.
 
-So if we want to print `"apple"`, we have to get the first value of the list.
+Então, se quisermos exibir `"maçã"`, nós precisamos pegar o primeiro valor da lista:
 
 ```lua
 function love.draw()
-	love.graphics.print(fruits[1], 100, 100)
+	love.graphics.print(frutas[1], 100, 100)
 end
 ```
 
-And so now it should draw `"apple"`. If you replace the `[1]` with `[2]`, you should get `"banana"`, and with `[3]` you get `"pear"`.
-
-Now we want to draw all 3 fruits. We could use love.graphics.print 3 times, each with a different table entry...
+Isso deve desenhar a palavra `"maçã"` na tela. Se você substituir `[1]` por `[2]` você deve ver `"banana"`, e com `[3]` você vai ter `"pêra"`.
+Agora nós queremos desenhar as três frutas. Nós podemos usar a função `love.graphics.print` três vezes, cada vez com uma posição diferente…
 
 ```lua
 function love.draw()
-	love.graphics.print(fruits[1], 100, 100)
-	love.graphics.print(fruits[2], 100, 200)
-	love.graphics.print(fruits[3], 100, 300)
+	love.graphics.print(frutas[1], 100, 100)
+	love.graphics.print(frutas[2], 100, 200)
+	love.graphics.print(frutas[3], 100, 300)
 end
 ```
 
-...but imagine if we had 100 values in our table. Luckily, there's a solution for this: for-loops!
+…mas imagine se nós tivéssemos 100 valores em nossa tabela. Por sorte temos uma solução para isso: ciclos `for`!
 
-___
+## Ciclos `for`
 
-## for-loops
+Um ciclo `for` é um modo de iterarmos por um pedaço de código um número específico de vezes.
 
-A for-loop is a way to repeat a piece of code a certain amount of times.
-
-You create a for-loop like this:
+Você pode criar um ciclo `for` assim:
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-
-	for i=1,10 do
-		print("hello", i)
+	frutas = {"maçã", "banana"}
+	
+	table.insert(frutas, "pêra")
+	
+	for i = 1, 10 do
+		print("Olá!", i)
 	end
 end
 ```
 
-If you run the game you should see it prints hello 1, hello 2, hello 3, all the way to 10.
+Se você executar o jogo, você verá `Olá! 1`, `Olá! 2`, `Olá 3`… no console, até chegar à 10.
 
-To create a for-loop, first you write `for`. Next you write a variable and give it a numeric value. This is where the for-loop starts. The variable can be named anything, but it's common to use `i`. This variable can only be used inside the for-loop (just like with functions and parameters). Next you write the number to which it should count. So for example `for i=6,18 do` will start at 6 and keep looping till it's at 18.
+Para criar um ciclo `for`, primeiro nós escrevemos `for`. Depois, nós escrevemos uma variável e atribuímos um valor numérico à ela. É aí que o ciclo `for` vai começar. A variável pode ter qualquer nome, mas é comum usarmos `i`. Essa variável só pode ser usada dentro do ciclo `for` (bem como funcionam funções e parâmetros). Depois, você escreve o número que deve ser alcançado. Por exemplo, `for i = 8, 18 do` vai começar em 6 e repetir o código até chegar em 18.
 
-There is also a third, optional number. This is by how much the variable increases. `for i=6,18,4 do` would go: 6, 10, 14, 18. With this you can also make for-loops go backwards with -1.
+Também existe um terceiro número opcional, que é o valor pelo qual a variável vai ser somada. `for i = 6, 18, 4` seria percorrido como `6, 10, 14, 18`. Com isso você também pode executar ciclos `for` regressivos usando -1.
 
-Our table starts at 1 and has 3 values, so we will write:
+Nossa tabela começa em 1 e tem 3 valores, então nós vamos escrever:
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-
-	for i=1,3 do
-		print(fruits[i])
+	frutas = {"maçã", "banana"}
+	
+	table.insert(frutas, "pêra")
+	
+	for i = 1, 3 do
+		print(frutas[i])
+		
 	end
 end
 ```
 
-When you run the game you'll see that it prints all 3 fruits. In the first loop it prints `fruits[1]`, then in the second loop `fruits[2]`and finally in the third loop `fruits[3]`.
 
-___
+Quando você executar o código, você verá que as três frutas serão imprimidas no console. No primeiro ciclo ele imprime `frutas[1]`, no segundo ciclo será `frutas[2]`, e no terceiro ciclo, `frutas[3]`.
 
-## Editing tables
+## Editando tabelas
 
 But what if we add or remove a value from a table? We would have to change the 3 into another number. For that we use `#fruits`. With the #-sign, we can get the length of a table. The length of a table refers to the number of things in that table. That length would be `3` in our case, since we have 3 entries: `apple`, `banana`, and `pear` in our `fruits` table.
 
