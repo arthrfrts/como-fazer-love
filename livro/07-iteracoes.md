@@ -112,136 +112,141 @@ Quando você executar o código, você verá que as três frutas serão imprimid
 
 ## Editando tabelas
 
-But what if we add or remove a value from a table? We would have to change the 3 into another number. For that we use `#fruits`. With the #-sign, we can get the length of a table. The length of a table refers to the number of things in that table. That length would be `3` in our case, since we have 3 entries: `apple`, `banana`, and `pear` in our `fruits` table.
+E se quisermos adicionar ou remover um valor de uma tabela? Nós teríamos que mudar o 3 para outro número. Para isso nós usamos `#frutas`. Com o símbolo `#`, nós podemos obter o comprimento de uma tabela. O comprimento de uma tabela se refere ao número de coisas dentro dela. Esse comprimento seria `3` no nosso caso, uma vez que nós temos três valores: `maçã`, `banana` e `pêra` na nossa tabela `frutas`.
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-
-	print(#fruits)
-	--Output: 2
-
-	table.insert(fruits, "pear")
-
-	print(#fruits)
-	--Output: 3
-
-	for i=1,#fruits do
-		print(fruits[i])
+	frutas = {"maçã", "banana"}
+	
+	print(#frutas)
+	-- Resultado: 2
+	
+	table.insert(frutas, "pêra")
+	
+	print(#frutas)
+	-- Resultado: 3
+	
+	for i = 1, #frutas do
+		print(frutas[i])
 	end
 end
 ```
 
-Let's use this knowledge to draw all 3 fruits.
+Vamos usar isso para desenhar as três frutas na tela.
 
 ```lua
 function love.draw()
-	for i=1,#fruits do
-		love.graphics.print(fruits[i], 100, 100)
+	for i = 1, #frutas do
+		love.graphics.print(frutas[i], 100, 100)
 	end
 end
 ```
 
-If you run the game you should see it draws all 3 fruits, except they're all drawn on the same position. We can fix this by printing each number on a different height.
+Se você executar o jogo, você verá que as três frutas estarão impressas na tela do jogo, porém imprimimos todas na mesma posição. Nós podemos corrigir isso imprimindo cada valor em uma altura diferente.
 
 ```lua
 function love.draw()
-	for i=1,#fruits do
-		love.graphics.print(fruits[i], 100, 100 + 50 * i)
+	for i = 1,#frutas do
+		love.graphics.print(frutas[i], 100, 100 + 50 * i)
 	end
 end
 ```
 
-So now `"apple"` will be drawn on the y-position 100 + 50 * 1, which is 150. Then `"banana"` gets drawn on 200, and `"pear"` on 250.
+Agora, `maçã` será desenhado na posição Y = 100 + 50 * 1, que é 150. Já `banana` será desenhado em 200, e `pêra` em 250.
 
-![](/images/book/7/fruits.png)
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/7/fruits.png)
 
-If we were to add another fruit, we won't have to change anything. It will automatically be drawn. Let's add `"pineapple"`.
+Se adicionarmos outra fruta, não precisaremos mudar nada. Ela será impressa automaticamente. Vamos adicionar `"abacaxi"`.
 
-```lua
-function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-	table.insert(fruits, "pineapple")
-end
-```
-
-We can also remove values from our table. For that we use `table.remove`. The first argument is the table we want to remove something from, the second argument is the position we want to remove. So if we want to remove banana, we do the following:
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-	table.insert(fruits, "pineapple")
-	table.remove(fruits, 2)
+	frutas = {"maçã", "banana"}
+	table.insert(frutas, "pêra")
+	table.insert(frutas, "abacaxi")
 end
 ```
 
-When you run the game you'll see that banana is no longer drawn, and that pear and pinapple have moved up.
-
-![](/images/book/7/shift.png)
-
-When you remove a value from a table with `table.remove`, all the following items in the table will move up. So what was on position 3 is now on position 2 in the table. And what was on position 4 is now on position 3.
-
-You can also add or change the values inside the table directly. For example, we can change `"apple"` into `"tomato"`:
+Nós também podemos remover valores de nossa tabela. Para isso, usamos `table.remove`. O primeiro argumento é a tabela na qual desejamos remover algo, e o segundo argumento é a posição do que nós queremos remover. Então, se quisermos remover `banana`, 'nós fazemos o seguinte: 
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-	table.insert(fruits, "pineapple")
-	table.remove(fruits, 2)
-	--The value of position 1 in the table becomes "tomato"
-	fruits[1] = "tomato"
+	frutas = {"maçã", "banana"}
+	table.insert(frutas, "pêra")
+	table.insert(frutas, "abacaxi")
+	table.remove(frutas, 2)
 end
 ```
 
-___
+Quando você executar o jogo novamente, você verá que `banana` não será desenhada mais, e `pêra` e `abacaxi` foram movidas para cima.
+
+![](//raw.githubusercontent.com/arthrfrts/como-fazer-love/master/images/book/7/shift.png)
+
+Quando você remove o valor de uma tabela com `table.remove`, todos os itens seguintes serão movidos para cima. Então algo que estava na terceira posição da tabela foi para a segunda, e o que estava na quarta posição foi para a terceira.
+
+Você também pode adicionar ou alterar os valores dentro de uma tabela diretamente. Por exemplo, nós podemos substituir `maçã` por `tomate`:
+
+```lua
+function love.load()
+	frutas = {"maçã", "banana"}
+	table.insert(frutas, "pêra")
+	table.insert(frutas, "abacaxi")
+	table.remove(frutas, 2)
+	-- Altera o valor da posição 1 para `tomate`:
+	frutas[1] = "tomate"
+end
+```
+
+***
 
 ## ipairs
 
-Back to the for-loops. There is actually another way, and an easier way to loop through the table. We can use an `ipairs` loop.
+Vamos voltar para os ciclos `for`. Existe um outro método mais fácil de percorrer uma tabela. Nós podemos usar um ciclo `ipairs`.
 
 ```lua
 function love.load()
-	fruits = {"apple", "banana"}
-	table.insert(fruits, "pear")
-	table.insert(fruits, "pineapple")
-	table.remove(fruits, 2)
-	fruits[1] = "tomato"
-
-	for i,v in ipairs(fruits) do
+	frutas = {"maçã", "banana"}
+	table.insert(frutas, "pêra")
+	table.insert(frutas, "abacaxi")
+	table.remove(frutas, 2)
+	fruts[1] = "tomate"
+	
+	for i, v in ipairs(frutas) do
 		print(i, v)
 	end
-	--Output:
-	--1, "tomato"
-	--2, "pear"
-	--3, "pineapple"
+	
+	--[[ Resultado:
+		1, "tomate"
+		2, "pêra"
+		3, "abacaxi"
+	]]--
 end
 ```
 
-This for-loop loops, or what we also call *iterates*, through all the values in the table. The variables `i` tells us the position of the table, `v` is the value of that position in the table. It's basically a shorthand for `fruits[i]`. For example, in the first iteration the values for the variables  `i` would be `1` and `v` would be `"apple"`. In the second iteration, `i` and `v` would be `2` and `"pear"` respectively.
+Esse ciclo `for` percorre, ou como chamamos **percorre** todos os valores na tabela. A variável `i` nos informa qual é a posição atual da tabela, enquanto `v` nos informa com o valor daquela posição. É uma maneira mais simples de escrever `frutas[i]`. Por exemplo, na primeira iteração os valores seriam `i = 1` e `v = "maçã"`. Na segunda iteração, os valores seriam `i = 2` e `v = "pêra"`, e assim por diante.
 
-But how does it work? Why does the function `ipairs` allow for this? That is for another time. For now all you need to know is that `ipairs` is basically a shorthand for the following:
+Mas como isso funciona? Por que a função `ipairs` permite isso? Vamos falar disso uma outra hora. Por agora, tudo o que você precisa saber é que `ipairs` é basicamente uma maneira mais simples de fazer o seguinte:
 
 ```lua
-for i=1, #fruits do
-	v = fruits[i]
+for i = 1, #frutas do
+	v = frutas[i]
 end
 ```
 
-Let's use `ipairs` for drawing our tables.
+Vamos usar `ipairs` para desenhar nossa tabela:
 
 ```lua
 function love.draw()
-	-- i and v are variables, so we can name them whatever we want
-	for i,frt in ipairs(fruits) do
-		love.graphics.print(frt, 100, 100 + 50 * i)
+	-- `i` e `v` são variáveis, nós podemos nomeá-las como quisermos.
+	
+	for i, fruta in ipairs(frutas) do
+		love.graphics.print(fruta, 100, 100 + 50 * i)
 	end
 end
 ```
 
-___
+***
 
-## Summary
-Tables are lists in which we can store values. We store these values when creating the table, with `table.insert`, or with `table_name[1] = "some_value"`. We can get the length of the table with `#table_name`. With for-loops we can repeat a piece of code a number of times. We can also use for-loops to iterate through tables.
+## Resumo
+
+Tabelas são listas em que podemos armazenar valores. Nós armazenamos esses valores ao criar a tabela; ou com `table.insert`, ou ainda com `nome_da_tabela[i] = "algum valor"`. Nós podemos obter o comprimento de uma tabela com `#nome_da_tabela`. Com ciclos `for` nós podemos repetir um pedaço de código um número de vezes. Nós também podemos usar ciclos `for` para percorrer tabelas.

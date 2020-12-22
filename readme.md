@@ -13,3 +13,4 @@ A versão inglês do tutorial está hospedada em [sheepolution.com/learn/book](h
 4. [LÖVE](https://arthr.me/como-fazer-love/livro/04-love)
 5. [Movimentando um retângulo](https://arthr.me/como-fazer-love/livro/05-movimentando)
 6. [Condições](https://arthr.me/como-fazer-love/livro/06-condicoes)
+7. [Tabelas e ciclos `for`](https://arthr.me/como-fazer-love/livro/07-iteracoes)
